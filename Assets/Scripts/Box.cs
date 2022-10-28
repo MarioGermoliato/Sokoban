@@ -21,11 +21,15 @@ public class Box : MonoBehaviour
     {
         foreach (Transform parede in sceneController.paredes)
         {
-            if (transform.position + direcao == parede.position)
+            foreach (Transform caixa in sceneController.caixas)
             {
-                Debug.Log("Tem parede");
-                return false;
+                if (transform.position + direcao == parede.position || transform.position + direcao == caixa.position)
+                {
+                    Debug.Log("Tem parede");
+                    return false;
+                }
             }
+            
         }
         return true;
         
